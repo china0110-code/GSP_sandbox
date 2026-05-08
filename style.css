@@ -1,0 +1,180 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #fff; color: #1a1a1a; padding: 2rem;
+}
+
+.container { max-width: 760px; margin: 0 auto; }
+h1 { font-size: 20px; font-weight: 700; margin-bottom: 1.5rem; }
+
+.input-section { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+label { font-size: 13px; color: #555; font-weight: 500; }
+
+input[type="text"], textarea {
+  width: 100%; padding: 8px 10px; font-size: 14px;
+  border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: inherit;
+}
+input[type="text"]:focus, textarea:focus { border-color: #1a1a1a; }
+
+.granularity-group { margin-bottom: 12px; }
+.granularity-label { font-size: 13px; color: #555; font-weight: 500; margin-bottom: 8px; display: block; }
+.granularity-options { display: flex; gap: 8px; }
+.gran-option { flex: 1; display: flex; flex-direction: column; }
+.gran-radio { display: none; }
+.gran-label {
+  padding: 8px 6px; font-size: 13px; font-weight: 500; cursor: pointer;
+  border: 1.5px solid #ddd; border-radius: 8px; background: #fff; color: #555;
+  text-align: center; line-height: 1.4; display: block; transition: all 0.15s; user-select: none;
+}
+.gran-label:hover { border-color: #999; color: #1a1a1a; }
+.gran-radio:checked + .gran-label { border-color: #1a1a1a; background: #1a1a1a; color: #fff; }
+.gran-title { font-weight: 600; display: block; }
+.gran-desc { font-size: 11px; opacity: 0.7; display: block; margin-top: 2px; }
+.gran-radio:checked + .gran-label .gran-desc { opacity: 0.8; }
+
+.btn-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 4px; }
+.btn-row2 { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 6px; }
+
+.btn-run, .btn-render {
+  padding: 10px; font-size: 15px; font-weight: 500; cursor: pointer;
+  background: #1a1a1a; color: #fff; border: none; border-radius: 8px;
+}
+.btn-run:hover, .btn-render:hover { background: #333; }
+.btn-render { font-size: 14px; padding: 8px; }
+
+.btn-clear {
+  padding: 10px 16px; font-size: 13px; cursor: pointer; color: #555;
+  background: #f5f5f5; border: 1px solid #ddd; border-radius: 8px; white-space: nowrap;
+}
+.btn-clear:hover { background: #eee; }
+
+.prompt-box { margin-top: 12px; display: none; }
+.prompt-box.visible { display: block; }
+.prompt-box-label { font-size: 12px; color: #555; margin-bottom: 6px; font-weight: 500; }
+.prompt-textarea {
+  width: 100%; height: 180px; font-size: 12px; font-family: monospace;
+  background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 10px; resize: vertical; color: #333;
+}
+.copy-row { display: flex; align-items: center; margin-top: 6px; }
+.copy-btn {
+  padding: 7px 16px; font-size: 13px; cursor: pointer; font-weight: 500;
+  background: #f5f5f5; border: 1px solid #ddd; border-radius: 8px; color: #1a1a1a;
+}
+.copy-btn:hover { background: #eee; }
+.copy-success { color: #1a7a4a; font-size: 12px; margin-left: 10px; display: none; }
+
+.hint {
+  font-size: 12px; color: #777; margin-top: 10px; padding: 10px 12px;
+  background: #f9f9f9; border-radius: 8px; line-height: 1.6;
+}
+.divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
+.section-label { font-size: 13px; font-weight: 600; color: #1a1a1a; margin: 1.2rem 0 6px; }
+
+#paste-area { min-height: 80px; font-size: 12px; margin-top: 1rem; font-family: monospace; resize: vertical; }
+
+.export-bar {
+  display: none; align-items: center; gap: 10px; margin-top: 1.5rem;
+  padding: 12px 16px; background: #f9f9f9; border: 1px solid #eee; border-radius: 10px;
+}
+.export-bar.visible { display: flex; }
+.export-label { font-size: 13px; color: #555; font-weight: 500; margin-right: 4px; }
+.btn-export {
+  padding: 7px 18px; font-size: 13px; font-weight: 500; cursor: pointer;
+  border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; transition: all 0.15s;
+}
+.btn-pdf { border-color: #e0d0f0; color: #6b3fa0; background: #faf5ff; }
+.btn-pdf:hover { background: #f0e8ff; }
+.btn-excel { border-color: #c8e6c9; color: #2e7d32; background: #f1fff2; }
+.btn-excel:hover { background: #e0f5e0; }
+
+.result-header { font-size: 14px; color: #555; margin-top: 1.5rem; }
+.result-header strong { color: #1a1a1a; font-weight: 600; }
+.level-badge { margin-left: 8px; font-size: 11px; background: #f5f5f5; padding: 2px 8px; border-radius: 100px; color: #555; }
+
+.summary-bar { display: flex; gap: 10px; margin: 1rem 0; flex-wrap: wrap; }
+.summary-chip { font-size: 12px; color: #555; background: #f5f5f5; padding: 4px 10px; border-radius: 100px; }
+.summary-chip span { font-weight: 600; color: #1a1a1a; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; margin-top: 0.5rem; }
+thead tr { border-bottom: 1px solid #ddd; }
+th { padding: 8px 10px; text-align: left; font-size: 12px; font-weight: 500; color: #777; }
+th:nth-child(1) { width: 24%; }
+th:nth-child(2) { width: 54%; }
+th:nth-child(3) { width: 22%; }
+td { padding: 10px; vertical-align: top; }
+tr { border-bottom: 0.5px solid #eee; }
+tr:last-child { border-bottom: none; }
+
+.task-name { font-weight: 600; font-size: 13px; color: #1a1a1a; }
+.task-cat { font-size: 11px; color: #888; margin-top: 2px; }
+.task-detail { font-size: 12px; color: #555; line-height: 1.5; margin-bottom: 6px; }
+
+.axes-wrap { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.axis-chip { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: #f0f0f0; color: #555; cursor: default; white-space: nowrap; }
+
+.score-wrap { display: flex; flex-direction: column; gap: 5px; }
+.score-bar-bg { background: #f0f0f0; border-radius: 4px; height: 6px; width: 100%; overflow: hidden; }
+.score-bar { height: 6px; border-radius: 4px; }
+.score-num { font-size: 13px; font-weight: 600; }
+.tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 100px; font-weight: 500; }
+.error-msg { color: #c0392b; font-size: 13px; margin-top: 1rem; padding: 10px; background: #fdf0ee; border-radius: 8px; }
+
+/* =============================================
+   印刷用スタイル
+   ============================================= */
+.print-only { display: none; }
+
+@media print {
+  body * { visibility: hidden; }
+  #print-area, #print-area * { visibility: visible; }
+  #print-area {
+    display: block !important;
+    position: absolute; top: 0; left: 0;
+    width: 100%; padding: 16px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+    font-size: 10px; color: #1a1a1a;
+  }
+  #print-area h2 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  #print-area .print-meta { font-size: 9px; color: #555; margin-bottom: 10px; }
+  #print-area .print-summary { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  #print-area .print-chip { font-size: 9px; background: #f5f5f5; padding: 2px 8px; border-radius: 100px; }
+
+  /* 業務一覧テーブル */
+  #print-area table { width: 100%; border-collapse: collapse; font-size: 9px; page-break-inside: auto; }
+  #print-area thead { display: table-header-group; }
+  #print-area tr { page-break-inside: avoid; }
+  #print-area th { background: #f0f0f0; padding: 5px 7px; text-align: left; border: 1px solid #ccc; font-size: 9px; font-weight: 600; }
+  #print-area td { padding: 5px 7px; border: 1px solid #ddd; vertical-align: top; line-height: 1.5; }
+
+  /* レーダーチャートセクション */
+  #print-area .chart-section-title {
+    font-size: 12px; font-weight: 700; margin: 20px 0 12px;
+    padding-top: 16px; border-top: 1px solid #ddd;
+    page-break-before: always;
+  }
+  #print-area .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  #print-area .chart-card {
+    border: 1px solid #eee; border-radius: 8px;
+    padding: 10px; text-align: center;
+    page-break-inside: avoid;
+  }
+  #print-area .chart-title { font-size: 10px; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+  #print-area .chart-cat { font-size: 8px; color: #888; margin-bottom: 6px; }
+  #print-area .chart-score { font-size: 12px; font-weight: 700; margin-top: 6px; }
+  #print-area .chart-badge {
+    font-size: 8px; font-weight: 500; padding: 1px 6px;
+    border-radius: 8px; margin-left: 4px;
+  }
+
+  /* 凡例 */
+  #print-area .print-axes-legend {
+    margin-top: 14px; font-size: 8px; color: #666;
+    line-height: 1.9; border-top: 1px solid #eee; padding-top: 8px;
+  }
+}
