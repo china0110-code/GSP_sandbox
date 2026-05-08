@@ -56,7 +56,7 @@
   </div>
 
   <div class="prompt-box" id="prompt-box">
-    <div class="prompt-box-label">👇 以下をコピーしてClaudeに貼り付けてください</div>
+    <div class="prompt-box-label">👇 以下をコピーして生成AIに貼り付けてください</div>
     <textarea class="prompt-textarea" id="prompt-textarea" readonly></textarea>
     <div class="copy-row">
       <button type="button" class="copy-btn" onclick="copyPrompt()">コピーする</button>
@@ -64,13 +64,13 @@
     </div>
   </div>
 
-  <div class="hint">「プロンプトを生成する」を押すと下にテキストが表示されます。コピーしてClaude.aiに貼り付けて送信し、返ってきたJSONをステップ2に貼り付けてください。</div>
+  <div class="hint">「プロンプトを生成する」を押すと下にテキストが表示されます。コピーして生成AIに貼り付けて送信し、返ってきたJSONをステップ2に貼り付けてください。</div>
 
   <hr class="divider">
 
   <!-- ステップ2 -->
-  <div class="section-label">ステップ2：Claudeの回答を貼り付けて表示</div>
-  <textarea id="paste-area" placeholder='Claudeが返したJSONをここに貼り付け（{"tasks":[...]} の形式）'></textarea>
+  <div class="section-label">ステップ2：生成AIの回答を貼り付けて表示</div>
+  <textarea id="paste-area" placeholder='生成AIが返したJSONをここに貼り付け（{"tasks":[...]} の形式）'></textarea>
   <div class="btn-row2">
     <button type="button" class="btn-render" onclick="renderFromPaste()">表に変換する ↗</button>
     <button type="button" class="btn-clear" onclick="clearStep2()">クリア</button>
